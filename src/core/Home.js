@@ -7,13 +7,10 @@ import Card from "./Card";
 import Search from "./Search";
 
 const Home = () => {
-    // hooks: [propiedad como tal, la que refleja un cambio de su estado]
-    // useState: es el estado inicial de mi elemento del arreglo, ej: productsBySell
-    const [productsBySell, setProductsBySell ] = useState([]);
-    const [productsByArrival, setProductsByArrival ] = useState([]);
-    const [error, setError ] = useState(false);
+    const [productsBySell, setProductsBySell] = useState([]);
+    const [productsByArrival, setProductsByArrival] = useState([]);
+    const [error, setError] = useState(false);
 
-    // functions
     const loadProductsBySell = () => {
         getProducts("sold").then(data => {
             if (data.error) {
@@ -42,7 +39,7 @@ const Home = () => {
     return (
         <Layout
             title="Home Page"
-            description="Node React E-commerce app"
+            description="Node React E-commerce App"
             className="container-fluid"
         >
             <Search />
@@ -54,13 +51,14 @@ const Home = () => {
                     </div>
                 ))}
             </div>
+
             <h2 className="mb-4">Best Sellers</h2>
             <div className="row">
-                    {productsBySell.map((product, i) => (
-                        <div key={i} className="col-4 mb-3">
-                            <Card product={product} />
-                        </div>
-                    ))}
+                {productsBySell.map((product, i) => (
+                    <div key={i} className="col-4 mb-3">
+                        <Card product={product} />
+                    </div>
+                ))}
             </div>
         </Layout>
     );

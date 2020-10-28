@@ -12,3 +12,24 @@ export const getProducts = sortBy => {
         })
         .catch(err => console.log(err));
 };
+
+export const getCategories = () => {
+    return fetch(`${API}/categories`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const list = params => {
+    const query = queryString.stringify(params);
+    return fetch(`${API}/products/search?${query}`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

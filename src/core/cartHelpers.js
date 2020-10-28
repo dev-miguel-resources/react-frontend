@@ -28,9 +28,9 @@ export const addItem = (item, next) => {
     }
 };
 
-    export const itemTotel = () => {
+    export const itemTotal = () => {
         if (typeof window !== "undefined") {
-            if (localStorage.get("cart")) {
+            if (localStorage.getItem("cart")) {
                 return JSON.parse(localStorage.getItem("cart")).length;
             }
         }
